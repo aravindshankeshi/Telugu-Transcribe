@@ -1,74 +1,94 @@
-# Telugu Transcription for YouTube Videos
-
-## Abstract
-This project develops a browser extension for transcribing Telugu YouTube videos using the OpenAI Whisper model. The transcription tool aims to improve accessibility for Telugu-speaking audiences by providing accurate and real-time transcriptions directly within the video interface. Powered by Flask on the backend, the system processes audio and delivers text outputs seamlessly. The fine-tuned Whisper model ensures transcription quality, capturing nuances of regional dialects and diverse speech patterns. Applications include online education, content creation, and enhancing media accessibility for the hearing impaired.
-
-### Key Features
-- Automatic punctuation and contextual understanding.
-- Integration with YouTube for real-time transcription.
-- Supports regional Telugu dialects and varying accents.
-
+🎙️ Telugu Transcribe — YouTube Video Transcription Tool
+A browser extension + Flask web app that automatically transcribes Telugu YouTube videos using a fine-tuned OpenAI Whisper model.
 ---
-
-## Results
-### Word Error Rate (WER) Comparison:
-| **Metric**            | **Before Fine-Tuning** | **After Fine-Tuning** |
-|------------------------|------------------------|------------------------|
-| **Orthographic WER**   | Not explicitly given  | **40.66%**            |
-| **Standard WER**       | **123.08%**           | **15.38%**            |
-
-### Additional Metrics:
-- **Training Loss**: 0.2289
-- **Validation Loss**: 0.0903
-- **Epochs Completed**: 9
-
+💡 Why I Built This
+As a Telugu speaker, I noticed that most YouTube transcription tools perform poorly on regional Indian languages. I wanted to build a tool that accurately transcribes Telugu audio — including regional dialects and varying accents — directly inside the YouTube interface.
 ---
-
-## Outputs
-1. **Generated Transcriptions**:
-   - High-quality transcriptions capturing regional nuances and contextual clarity.
-   - Transcriptions evaluated using Word Error Rate (WER) for accuracy.
-
-2. **Visual Comparison**:
-   ![Screenshot 2024-10-23 211017](https://github.com/user-attachments/assets/2a19ffba-4906-4f71-838b-d4056d4b6cc7)
-   ![Screenshot 2024-10-23 210840](https://github.com/user-attachments/assets/7145c0db-1da2-4403-9d2c-ec0b09095689)
-
-
+🚀 What It Does
+Takes a YouTube video URL as input
+Extracts the audio from the video
+Runs it through a fine-tuned Whisper model trained on Telugu datasets
+Displays the transcription in real time inside the browser
 ---
-
-## Features
-- **Backend**: Flask for processing transcription requests.
-- **Frontend**: User-friendly interface for uploading YouTube video links and viewing transcriptions.
-- **Fine-Tuned Whisper Model**: Improved transcription accuracy through targeted training on Telugu datasets.
-
+🛠️ Tech Stack
+Layer	Technology
+Speech-to-Text	OpenAI Whisper (fine-tuned)
+Backend	Python, Flask
+Browser Extension	HTML, JavaScript
+Fine-Tuning	Jupyter Notebook
+Dependencies	requirements.txt
 ---
-
-## Setup Instructions
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repo/telugu-transcription.git
-   cd telugu-transcription
-   ```
-
+📁 Project Structure
+```
+Telugu-Transcribe/
+│
+├── app.py                          # Flask backend — handles transcription requests
+├── sample.py                       # Sample script to test transcription
+├── Fine_Tune(without_quantize).ipynb  # Jupyter notebook for fine-tuning Whisper
+├── requirements.txt                # All Python dependencies
+└── youtube-telugu-transcriber/     # Browser extension files
+    ├── popup.html                  # Extension UI
+    ├── popup.js                    # Extension logic
+    ├── manifest.json               # Chrome extension config
+    ├── icon16.png
+    ├── icon48.png
+    └── icon128.png
+```
+---
+⚙️ How to Run Locally
+1. Clone the repo:
+```bash
+git clone https://github.com/aravindshankeshi/Telugu-Transcribe.git
+cd Telugu-Transcribe
+```
 2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Run the Flask application:
-   ```bash
-   python app.py
-   ```
-
-4. Access the application in your browser:
-   - Upload a YouTube video link to view real-time Telugu transcriptions.
-
+```bash
+pip install -r requirements.txt
+```
+3. Start the Flask server:
+```bash
+python app.py
+```
+4. Load the browser extension:
+Open Chrome → go to `chrome://extensions`
+Enable Developer Mode
+Click Load unpacked → select the `youtube-telugu-transcriber` folder
+5. Use it:
+Open any Telugu YouTube video
+Click the extension icon
+Get the transcription instantly!
 ---
-
-## Future Enhancements
-- **Dialect-Specific Fine-Tuning**: Extend support for Telugu dialects to improve regional accuracy.
-- **Mobile Support**: Integrate transcription capabilities into mobile applications.
-- **Multilingual Transcriptions**: Support mixed-language transcription (e.g., Telugu-English).
-
+📊 Model Performance (After Fine-Tuning)
+Metric	Before Fine-Tuning	After Fine-Tuning
+Standard WER	123.08%	15.38%
+Orthographic WER	—	40.66%
+Training Loss	—	0.2289
+Validation Loss	—	0.0903
+> Fine-tuning reduced the Word Error Rate from **123% → 15%** — a massive improvement in Telugu transcription accuracy.
 ---
+✨ Key Features
+✅ Real-time transcription directly inside YouTube
+✅ Supports Telugu regional dialects and varying accents
+✅ Automatic punctuation and contextual understanding
+✅ Fine-tuned on Telugu-specific datasets for high accuracy
+✅ Lightweight browser extension — no page reload needed
+---
+🔮 Future Plans
+Dialect-specific fine-tuning for better regional accuracy
+Mobile app support
+Mixed-language transcription (Telugu + English)
+Export transcription as `.txt` or `.srt` subtitle file
+---
+🧰 Requirements
+See `requirements.txt` for the full list. Key libraries include:
+`flask`
+`openai-whisper`
+`yt-dlp`
+`torch`
+`transformers`
+---
+📬 Contact
+Made by Aravind Shankeshi  
+📧 aravindshankeshi2002@gmail.com  
+🔗 GitHub Profile
 
