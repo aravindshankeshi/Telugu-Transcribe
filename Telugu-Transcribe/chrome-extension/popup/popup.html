@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telugu Transcriber</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="logo">🎙️</span>
+      <h1>Telugu Transcriber</h1>
+    </header>
+
+    <div id="status-bar" class="status-bar hidden"></div>
+
+    <div class="url-section">
+      <label for="url-input">YouTube URL</label>
+      <input
+        type="url"
+        id="url-input"
+        placeholder="Paste YouTube URL or auto-detect..."
+      />
+    </div>
+
+    <button id="transcribe-btn" class="btn-primary">
+      Transcribe
+    </button>
+
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>Running AI inference...</p>
+    </div>
+
+    <div id="result-section" class="result-section hidden">
+      <div class="result-header">
+        <h2 id="video-title"></h2>
+        <button id="copy-btn" class="btn-copy" title="Copy transcript">📋 Copy</button>
+      </div>
+      <div id="transcript-box" class="transcript-box"></div>
+    </div>
+
+    <footer>
+      <a href="http://localhost:3000/history" target="_blank">View all history →</a>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
